@@ -29,7 +29,7 @@ import colorama
 import time
 import argparse
 import os
-from time import gmtime, strftime
+from time import localtime, strftime
 
 # Twitter authentication stuff
 twitter = Twitter(
@@ -150,8 +150,8 @@ while True:
 
 			if "@update@" in newline:
 				padtitle += len("@update@")
-				padtitle -= len(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-				newline = newline.replace("@update@", strftime("%Y-%m-%d %H:%M:%S", gmtime()) + " "*padtitle)
+				padtitle -= len(strftime("%Y-%m-%d %H:%M:%S", localtime()))
+				newline = newline.replace("@update@", strftime("%Y-%m-%d %H:%M:%S", localtime()) + " "*padtitle)
 
 		except: # this should probably be made to make a liittle prettier
 			pass
